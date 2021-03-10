@@ -1,0 +1,18 @@
+create database php_modal;
+use php_modal;
+create table users(
+    id int AUTO_INCREMENT,
+    name VARCHAR(55),
+    password VARCHAR(55),
+    email VARCHAR(55),
+    email_verified_at VARCHAR(55),
+    updated_at VARCHAR(55),
+    created_at VARCHAR(55),
+    remember_token VARCHAR(256),
+    PRIMARY KEY (id)
+);
+
+PHP 8.0.1 (cli) 
+MySQL 
+Windows 10
+
