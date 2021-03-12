@@ -13,7 +13,8 @@ class studentController extends Controller
      */
     public function index()
     {
-        //
+        $students=studant::all();
+        return view("studant",["students"=>$students,"layout"=>"index"]);
     }
 
     /**
@@ -23,7 +24,8 @@ class studentController extends Controller
      */
     public function create()
     {
-        //
+        $students=studant::all();
+        return view("studant",["students"=>$students,"layout"=>"create"]);
     }
 
     /**
@@ -34,7 +36,14 @@ class studentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $student =new student();
+        $student->cne=$request->input("cne");
+        $student->firstName=$request->input("firstName");
+        $student->secandName=$request->input("secandName");
+        $student->age=$request->input("age");
+        $student->speciality=$request->input("speciality");
+        $student->save();
+        return redirect("/");
     }
 
     /**
@@ -45,7 +54,10 @@ class studentController extends Controller
      */
     public function show($id)
     {
-        //
+        $student=student::find($id);
+        $students=student::all();
+        return view("studant",["students"=>$students,"student",$student,"layout"=>"show"]);
+
     }
 
     /**
@@ -56,7 +68,9 @@ class studentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student=student::find($id);
+        $students=student::all();
+        return view("studant",["students"=>$students,"student",$student,"layout"=>"edit"]);
     }
 
     /**
@@ -68,7 +82,14 @@ class studentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $student=student::find($id);
+        $student->cne=$request->input("cne");
+        $student->firstName=$request->input("firstName");
+        $student->secandName=$request->input("secandName");
+        $student->age=$request->input("age");
+        $student->speciality=$request->input("speciality");
+        $student->save();
+        return redirect("/");
     }
 
     /**
@@ -79,6 +100,8 @@ class studentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $student=student::find($id);
+        $student->delete();
+        return redirect("/");
     }
 }
