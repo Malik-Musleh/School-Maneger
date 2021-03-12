@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('student');
-});
+// Route::get('/', function () {
+//     return view('student');
+// });
 
 Auth::routes(['verify' => true]);
 
@@ -24,12 +24,10 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/home', [App\Http\Controllers\studentController::class, 'index'])->name('home');
-Route::get('/store', [App\Http\Controllers\studentController::class, 'store'])->name('home');
-Route::get('/create', [App\Http\Controllers\studentController::class, 'create'])->name('home');
-Route::get('/show/{id}', [App\Http\Controllers\studentController::class, 'show'])->name('home');
-Route::get('/edit/{id}', [App\Http\Controllers\studentController::class, 'edit'])->name('home');
-Route::get('/update/{id}', [App\Http\Controllers\studentController::class, 'update'])->name('home');
-Route::get('/destroy/{id}', [App\Http\Controllers\studentController::class, 'destroy'])->name('home');
-
-
+Route::get('/', [App\Http\Controllers\studentController::class, 'index']);
+Route::post('/store', [App\Http\Controllers\studentController::class, 'store']);
+Route::get('/create', [App\Http\Controllers\studentController::class, 'create']);
+Route::get('/show/{id}', [App\Http\Controllers\studentController::class, 'show']);
+Route::get('/edit/{id}', [App\Http\Controllers\studentController::class, 'edit']);
+Route::get('/update/{id}', [App\Http\Controllers\studentController::class, 'update']);
+Route::get('/destroy/{id}', [App\Http\Controllers\studentController::class, 'destroy']);
