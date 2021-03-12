@@ -13,6 +13,8 @@
 </head>
 
 <body>
+@include("navbar")
+
   @if($layout=="index")
   <div class="container-fluid">
     <div class="row">

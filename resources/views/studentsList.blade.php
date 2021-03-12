@@ -19,7 +19,7 @@
             <td>
                 <a href="#" class="btn btn-sm btn-info">show</a>
                 <a href="{{url('/edit/'.$student->id)}}" class="btn btn-sm btn-warning">edit</a>
-                <a href="{{url('/distroy/'.$student->id)}}" class="btn btn-sm btn-danger">delete</a>
+                <a href="{{url('/destroy/'.$student->id)}}" class="btn btn-sm btn-danger">delete</a>
             </td>
         </tr>
         @endforeach
