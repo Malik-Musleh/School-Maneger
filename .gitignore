@@ -11,3 +11,11 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+
+bootstrap/compiled.php
+app/storage/
+
+.env.*.php
+.env.php
+
+/nbproject/private/
