@@ -25,12 +25,16 @@
     </div>
   </div>
   @elseif($layout=="create")
-  <div class="container-fluid">
     <div class="row">
-      <section class="col">
+      <section class="col-md-7">
         @include("studentsList")
       </section>
-      <section class="col">
+      <section class="col-md-5">
+  <div class="card mb-3">
+  <img src="http://saturn-systems.net/wp-content/uploads/2018/03/Home-education.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+  <div class="container-fluid">
         <form action="{{url('store')}}" method="POST" class="row g-3">
         @csrf
           <div class="col-auto">
@@ -53,9 +57,12 @@
             <label for="speciality">Speciality</label>
             <input name="speciality" class="form-control-plaintext" placeholder="Enter Speciality">
           </div>
-          <input type="submit" class="btn btn-info" value="Save" />
-          <input type="reset" class="btn btn-info" value="Reset" />
+          <div>
+          <input type="submit" class="btn btn-md btn-info" value="Save" />
+          <input type="reset" class="btn btn-md btn-info" value="Reset" />
+          </div>
         </form>
+  </div>
       </section>
     </div>
   </div>
