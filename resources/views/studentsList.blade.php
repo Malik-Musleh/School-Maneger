@@ -1,5 +1,5 @@
 <div class="card mb-3">
-    <img src="https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip" class="card-img-top" alt="...">
+    <img  src="https://images.theconversation.com/files/45159/original/rptgtpxd-1396254731.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=754&fit=clip" class="card-img-top " alt="...">
     <div class="card-body">
         <h5 class="card-title">List of students</h5>
         <table class="table caption-top">

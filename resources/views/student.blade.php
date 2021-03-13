@@ -9,68 +9,81 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
-  <title>Hello, world!</title>
+  <link src='../css/style.css' rel="stylesheet">
+
+  <style>
+    <?php include 'C:\xampp\htdocs\School Maneger\resources\css\style.css'; ?>
+  </style>
+
+  <title>School Maneger!</title>
 </head>
 
 <body>
-@include("navbar")
-
+  @include("navbar")
+  <div class="header-container">
+    <h2 class="header">School Maneger</h1>
+  </div>
   @if($layout=="index")
   <div class="container-fluid">
     <div class="row">
-      <section class="col">
+      <section class="col-md-7">
         @include("studentsList")
+        <footer></footer>
       </section>
       <section class="col">
     </div>
   </div>
   @elseif($layout=="create")
-    <div class="row">
-      <section class="col-md-7">
-        @include("studentsList")
-      </section>
-      <section class="col-md-5">
-  <div class="card mb-3">
-  <img src="http://saturn-systems.net/wp-content/uploads/2018/03/Home-education.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
   <div class="container-fluid">
-        <form action="{{url('store')}}" method="POST" class="row g-3">
-        @csrf
-          <div class="col-auto">
-            <label for="cne">CNE</label>
-            <input name="cne" class="form-control-plaintext" placeholder="Enter Enter CNE">
+  <div class="row">
+    <section class="col-md-7">
+      @include("studentsList")
+      <footer></footer>
+    </section>
+    <section class="col-md-5">
+      <div class="card mb-3">
+        <img src="https://images.moneycontrol.com/static-mcnews/2017/03/Education_study_student_school_college_1280x720.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <div class="container-fluid">
+          <h5 class="card-title">Enter the student info</h5>
+            <form action="{{url('store')}}" method="POST" class="col g-1 ">
+              @csrf
+              <div class="row-auto">
+                <label for="cne">CNE</label>
+                <input name="cne" class="form-control" placeholder="Enter Enter CNE">
+              </div>
+              <div class="row-auto">
+                <label for="firstName">First Name</label>
+                <input name="firstName" class="form-control" placeholder="Enter First Name">
+              </div>
+              <div class="row-auto">
+                <label for="secondName">Second Name</label>
+                <input name="secondName" class="form-control" placeholder="Enter Second Name">
+              </div>
+              <div class="row-auto">
+                <label for="age">Age</label>
+                <input name="age" class="form-control" placeholder="Enter Age">
+              </div>
+              <div class="row-auto">
+                <label for="speciality">Speciality</label>
+                <input name="speciality" class="form-control" placeholder="Enter Speciality">
+              </div>
+              <div>
+                <input type="submit" class="btn btn-md btn-info" value="Save" />
+                <input type="reset" class="btn btn-md btn-info" value="Reset" />
+              </div>
+            </form>
           </div>
-          <div class="col-auto">
-            <label for="firstName">First Name</label>
-            <input name="firstName" class="form-control-plaintext" placeholder="Enter First Name">
-          </div>
-          <div class="col-auto">
-            <label for="secondName">Second Name</label>
-            <input name="secondName" class="form-control-plaintext" placeholder="Enter Second Name">
-          </div>
-          <div class="col-auto">
-            <label for="age">Age</label>
-            <input name="age" class="form-control-plaintext" placeholder="Enter Age">
-          </div>
-          <div class="col-auto">
-            <label for="speciality">Speciality</label>
-            <input name="speciality" class="form-control-plaintext" placeholder="Enter Speciality">
-          </div>
-          <div>
-          <input type="submit" class="btn btn-md btn-info" value="Save" />
-          <input type="reset" class="btn btn-md btn-info" value="Reset" />
-          </div>
-        </form>
+          <footer></footer>
+    </section>
   </div>
-      </section>
-    </div>
   </div>
   @elseif($layout=="show")
   <div class="container-fluid">
     <div class="row">
-      <section class="col">
+      <section class="col-md-7">
         @include("studentsList")
+        <footer></footer>
       </section>
       <section class="col">
       </section>
@@ -79,35 +92,42 @@
   @elseif($layout=="edit")
   <div class="container-fluid">
     <div class="row">
-      <section class="col">
+      <section class="col-md-7">
         @include("studentsList")
+        <footer></footer>
       </section>
-      <section class="col">
-      <form action="{{url('update/'.$student->id)}}" method="GET" class="row g-3">
-        @csrf
-          <div class="col-auto">
-            <label for="cne">CNE</label>
-            <input  value="{{$student->cne}}" name="cne" class="form-control-plaintext" placeholder="Enter Enter CNE">
+      <section class="col-md-5">
+        <div class="card mb-3">
+          <img src="https://images.moneycontrol.com/static-mcnews/2017/03/Education_study_student_school_college_1280x720.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Enter the new values</h5>
+            <form action="{{url('update/'.$student->id)}}" method="GET" class="row g-3">
+              @csrf
+              <div class="col-auto">
+                <label for="cne">CNE</label>
+                <input value="{{$student->cne}}" name="cne" class="form-control-plaintext" placeholder="Enter Enter CNE">
+              </div>
+              <div class="col-auto">
+                <label for="firstName">First Name</label>
+                <input value="{{$student->firstName}}" name="firstName" class="form-control-plaintext" placeholder="Enter First Name">
+              </div>
+              <div class="col-auto">
+                <label for="secondName">Second Name</label>
+                <input value="{{$student->secondName}}" name="secondName" class="form-control-plaintext" placeholder="Enter Second Name">
+              </div>
+              <div class="col-auto">
+                <label for="age">Age</label>
+                <input value="{{$student->age}}" name="age" class="form-control-plaintext" placeholder="Enter Age">
+              </div>
+              <div class="col-auto">
+                <label for="speciality">Speciality</label>
+                <input value="{{$student->speciality}}" name="speciality" class="form-control-plaintext" placeholder="Enter Speciality">
+              </div>
+              <input type="submit" class="btn btn-info" value="Update" />
+              <input type="reset" class="btn btn-info" value="Reset" />
+            </form>
           </div>
-          <div class="col-auto">
-            <label for="firstName">First Name</label>
-            <input value="{{$student->firstName}}" name="firstName" class="form-control-plaintext" placeholder="Enter First Name">
-          </div>
-          <div class="col-auto">
-            <label for="secondName">Second Name</label>
-            <input value="{{$student->secondName}}"  name="secondName" class="form-control-plaintext" placeholder="Enter Second Name">
-          </div>
-          <div class="col-auto">
-            <label for="age">Age</label>
-            <input value="{{$student->age}}" name="age" class="form-control-plaintext" placeholder="Enter Age">
-          </div>
-          <div class="col-auto">
-            <label for="speciality">Speciality</label>
-            <input value="{{$student->speciality}}" name="speciality" class="form-control-plaintext" placeholder="Enter Speciality">
-          </div>
-          <input type="submit" class="btn btn-info" value="Update" />
-          <input type="reset" class="btn btn-info" value="Reset" />
-        </form>
+          <footer></footer>
       </section>
     </div>
   </div>
